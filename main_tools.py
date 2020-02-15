@@ -16,6 +16,7 @@ from for_anki import create_link, show_link
 # from lvce import *
 # from collections import namedtuple
 # import re
+import qdarkstyle
 
 
 class Tools(QtWidgets.QWidget, Ui_Tools):
@@ -69,8 +70,12 @@ class Tools(QtWidgets.QWidget, Ui_Tools):
 
     def anki(self):
         self.anki_create_link_btn.pressed.connect(create_link)
-        self.anki_show_link_btn.pressed.connect(show_link)
+
+
+def set_windows(window:QtWidgets.QWidget):
+    window.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
+
 
 
 if __name__ == '__main__':
-    window(Tools, flag=True)
+    window(Tools, func=set_windows, flag=True)
