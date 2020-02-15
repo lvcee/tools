@@ -27,8 +27,8 @@ def create_link():
     Content = namedtuple('Content', ['one', 'name', 'section_id', 'page_id'])
     content = Content._make(*re.findall(r'.*?onenote:(.*?.one)#(.*?)&section-id={(.*?)}&page-id={(.*?)}&end', old_link))
     data = 'onenote:#{}&section-id={{{}}}&page-id={{{}}}&end&base-path={}'.format(content.name, content.section_id, content.page_id, content.one)
-    link = '<a href="{}">onenote page</a>'.format(data)
-    pyperclip.copy(link)
+    # link = '<a href="{}">onenote page</a>'.format(data)
+    pyperclip.copy(data)
 
 
 # 获取剪切板中的anki链接信息，然后打开OneNote页面
